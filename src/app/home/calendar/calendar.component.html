@@ -1,0 +1,60 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Lundi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Mardi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Mercredi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Jeudi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Vendredi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Samedi</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Dimanche</ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  
+    <ion-row *ngFor="let week of calendar">
+      <ion-col *ngFor = "let day of week" (click)="onSelect(day)">
+        <ion-item>
+          <ion-label>{{ day.caldaynumber }}</ion-label>
+          <ion-label *ngIf="day.event">{{ day.event.title }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  {{ dday }} 
+  {{ numjour }}
+
+  <app-event-detail [selectedDay]="selectedDay"></app-event-detail>
+
+  <!--
+  <ion-item *ngIf="events">
+    <ion-label *ngFor = "let event of events">
+    {{ event.title }}
+    </ion-label>
+  </ion-item>
+-->

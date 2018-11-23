@@ -1,7 +1,9 @@
+import { Datetime } from "@ionic/angular";
+
 export class Event {
     title: string;
-    startdate: VarDate;
-    enddate: VarDate
+    startdate: Datetime;
+    enddate: Datetime;
     location: string;
     description:string;
 }

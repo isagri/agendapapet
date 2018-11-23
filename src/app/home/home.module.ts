@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import { CalendarComponent } from './calendar/calendar.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 @NgModule({
   imports: [
@@ -12,6 +14,10 @@ import { HomePage } from './home.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    CalendarComponent,
+    EventDetailComponent
+  ]
 })
 export class HomePageModule {}
