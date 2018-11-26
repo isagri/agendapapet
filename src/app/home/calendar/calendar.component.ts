@@ -12,9 +12,10 @@ import * as moment from 'moment';
 })
 export class CalendarComponent implements OnInit {
 
-  events: Event[];
+  events: any[];
   calendar = [];
   selectedDay: Day;
+  dday;
 
   constructor(private eventsApiService : EventsApiService) { }
 
@@ -24,17 +25,39 @@ export class CalendarComponent implements OnInit {
         this.events = events.rows;
         console.log(this.events);
         // ajouter le chargement des events dans le calendar
-        
-    });
+        for (let event of this.events) {
+          if (event.doc.start_time && 
+              moment(event.doc.start_time).format('YYYYMM') == moment(this.dday).format('YYYYMM')) {
+//              if (event.doc.start_time.getMonth() == this.dday.getMonth())
+            console.log(moment(event.doc.start_time).format('YYYYMMDD'));
+            for (let sem of this.calendar) {
+              for (let jour of sem) {
+                if (moment(event.doc.start_time).format('YYYYMMDD') == moment(jour.caldate).format('YYYYMMDD')) {
+                    jour.event = event.doc;
+                    console.log(moment(event.doc.start_time).format('YYYYMMDD'),moment(jour.caldate).format('YYYYMMDD') ) ;
+                }
+                  
+              }
+            }
+          }
+        }
+
+        console.log(this.calendar);
+
+
+      });
   }
   
+  chargeEvents(): void {
+
+  }
 
   
 
   ngOnInit() {
     //var moment = require('moment');
     moment.locale('fr');
-
+    var dday = new Date();
     var week = [];
     var iday, dayAdd;
     var daySubtract = parseInt(moment().format('Do')) - 1;
