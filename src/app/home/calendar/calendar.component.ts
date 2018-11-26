@@ -31,17 +31,19 @@ export class CalendarComponent implements OnInit {
     this.getEvents();
   }
 
+  // calcul du calendrier (calendar) du mois à afficher
   chargeCalendar() {
 
     this.calendar = [];
 
+    // 1 er jour du mois -> déterminer la position du jour dans la semaine
     var firstDayOfMonth = String(this.displayedYear) + String(this.displayedMonth) + '01';
     if (this.displayedMonth < 10) {
       firstDayOfMonth = String(this.displayedYear) + '0' + String(this.displayedMonth) + '01';
     }
     this.displayedFrenchMonth = moment(firstDayOfMonth).format('MMMM YYYY');
     console.log(firstDayOfMonth);
-
+    
     var dayOfWeekFirstDayOfMonth = moment(firstDayOfMonth,"YYYYMMDD").days();
     if (dayOfWeekFirstDayOfMonth > 0) {
       dayOfWeekFirstDayOfMonth = dayOfWeekFirstDayOfMonth - 1;
@@ -50,9 +52,11 @@ export class CalendarComponent implements OnInit {
     }
     console.log(dayOfWeekFirstDayOfMonth);
 
+    // détermine le 1er jour affiché dans le calendrier
     var firstDayOfCalendar = moment(firstDayOfMonth, "YYYYMMDD").subtract(dayOfWeekFirstDayOfMonth,'days');
     console.log(moment(firstDayOfCalendar).format('YYYYMMDD'));
 
+    // mise en place du calendrier calendar (tableau de semaines, contenant chacune un tableau de 7 jours)
     var day = moment(firstDayOfCalendar);
     var week = [];
     var iday: number;
@@ -75,6 +79,7 @@ export class CalendarComponent implements OnInit {
     }
   }
 
+  // chargement des events depuis la base de donnée, puis chargement des events dans le calendrier (calendar)
   getEvents(): void {
     this.eventsApiService.getEvents() 
       .subscribe((events) => { 
@@ -89,12 +94,11 @@ export class CalendarComponent implements OnInit {
       });
   }
   
+  // chargement des events dans le calendrier (calendar)
   chargeEventsCalendar(): void {
     for (let event of this.events) {
       if (event.doc.start_time && 
           moment(event.doc.start_time).format('YYYYMM') == moment(this.dday).format('YYYYMM')) {
-//              if (event.doc.start_time.getMonth() == this.dday.getMonth())
-        console.log(moment(event.doc.start_time).format('YYYYMMDD'));
         for (let sem of this.calendar) {
           for (let jour of sem) {
             if (moment(event.doc.start_time).format('YYYYMMDD') == moment(jour.caldate).format('YYYYMMDD')) {
