@@ -23,6 +23,8 @@ export class CalendarComponent implements OnInit {
       .subscribe((events) => { 
         this.events = events.rows;
         console.log(this.events);
+        // ajouter le chargement des events dans le calendar
+        
     });
   }
   
@@ -81,167 +83,8 @@ export class CalendarComponent implements OnInit {
       this.calendar.push(week);
     }
 
-
-/*
-    this.calendar.push([
-      {name: 'lundi',
-       number: 29,
-       month: 'octobre',
-       },
-
-       {name: 'mardi',
-       number: 30,
-       month: 'octobre' },
-
-       {name: 'mercredi',
-       number: 31,
-       month: 'octobre' },
-
-       {name: 'jeudi',
-       number: 1,
-       month: 'novembre' },
-
-       {name: 'vendredi',
-       number: 2,
-       month: 'novembre' },
-
-       {name: 'samedi',
-       number: 3,
-       month: 'novembre' },
-
-       {name: 'dimanche',
-       number: 4,
-       month: 'novembre' }
-    ]);
-    this.calendar.push([
-      {name: 'lundi',
-       number: 5,
-       month: 'novembre' },
-
-       {name: 'mardi',
-       number: 6,
-       month: 'novembre' },
-
-       {name: 'mercredi',
-       number: 7,
-       month: 'novembre' },
-
-       {name: 'jeudi',
-       number: 8,
-       month: 'novembre' },
-
-       {name: 'vendredi',
-       number: 9,
-       month: 'novembre' },
-
-       {name: 'samedi',
-       number: 10,
-       month: 'novembre' },
-
-       {name: 'dimanche',
-       number: 11,
-       month: 'novembre' }
-    ]);
-
-    this.calendar.push([
-      {name: 'lundi',
-       number: 12,
-       month: 'novembre' },
-
-       {name: 'mardi',
-       number: 13,
-       month: 'novembre' },
-
-       {name: 'mercredi',
-       number: 14,
-       month: 'novembre' },
-
-       {name: 'jeudi',
-       number: 15,
-       month: 'novembre' },
-
-       {name: 'vendredi',
-       number: 16,
-       month: 'novembre' },
-
-       {name: 'samedi',
-       number: 17,
-       month: 'novembre' },
-
-       {name: 'dimanche',
-       number: 18,
-       month: 'novembre' }
-    ]);
-
-    this.calendar.push([
-      {name: 'lundi',
-       number: 19,
-       month: 'novembre',
-       event: {
-         title: 'coder dojo',
-         location: 'Centre Ressources',
-         description: 'Formation à la programmation pour adolescents',
-         }
-      },
-
-       {name: 'mardi',
-       number: 20,
-       month: 'novembre' },
-
-       {name: 'mercredi',
-       number: 21,
-       month: 'novembre' },
-
-       {name: 'jeudi',
-       number: 22,
-       month: 'novembre' },
-
-       {name: 'vendredi',
-       number: 23,
-       month: 'novembre' },
-
-       {name: 'samedi',
-       number: 24,
-       month: 'novembre' },
-
-       {name: 'dimanche',
-       number: 25,
-       month: 'novembre' }
-    ]);
-
-    this.calendar.push([
-      {name: 'lundi',
-       number: 26,
-       month: 'novembre' },
-
-       {name: 'mardi',
-       number: 27,
-       month: 'novembre' },
-
-       {name: 'mercredi',
-       number: 28,
-       month: 'novembre' },
-
-       {name: 'jeudi',
-       number: 29,
-       month: 'novembre' },
-
-       {name: 'vendredi',
-       number: 30,
-       month: 'novembre' },
-
-       {name: 'samedi',
-       number: 1,
-       month: 'decembre' },
-
-       {name: 'dimanche',
-       number: 2,
-       month: 'decembre' }
-    ]);
-*/
     console.log(this.calendar);
     this.getEvents();
-    console.log(this.events);
   }
 
   onSelect(jour: Day): void {
