@@ -1,0 +1,14 @@
+.event-body > ion-item {
+
+    background-color: rgb(152, 236, 247);
+    border :1px solid grayscale($color: #84adc5);
+    text-decoration-color: blue($color: #281b64)
+}
+
+.dateevent{
+    --ion-grid-columns: 1;
+    
+}
+.event-detail {
+    background-color:lightblue;
+}
