@@ -9,6 +9,9 @@
   <ion-tab tab="contact">
     <ion-router-outlet name="contact"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="evenement">
+      <ion-router-outlet name="evenement"></ion-router-outlet>
+    </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
@@ -25,6 +28,11 @@
     <ion-tab-button tab="contact" href="/tabs/(contact:contact)">
       <ion-icon name="contacts"></ion-icon>
       <ion-label>Contact</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="evenement" href="/tabs/(evenement:evenement)">
+      <ion-icon name="evenement"></ion-icon>
+      <ion-label>Ajout d'évenements</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
