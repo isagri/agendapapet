@@ -7,7 +7,7 @@ import { Event } from './models/event';
   providedIn: 'root'
 })
 export class EventsApiService {
-  private eventsUrl: string = "http://ig73.alwaysdata.net/data/ig73_papet/_all_docs?include_docs=true";
+  private eventsUrl: string = "http://ig73.alwaysdata.net/data/ig73_papet/_all_docs?include_docs=true";//adresse base de données sur alwaysdata
 
 
   constructor(private http: HttpClient) {

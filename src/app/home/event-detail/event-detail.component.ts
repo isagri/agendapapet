@@ -7,6 +7,7 @@ import { Day } from '../../models/day';
   styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
+ 
 
   @Input() selectedDay: Day;
 
