@@ -1,6 +1,12 @@
 <ion-grid>
-  <ion-row class="Day
-  ssc">
+  <ion-row>
+    <ion-col size="3"></ion-col>
+    <ion-col size="2" (click)="prevMonth()">Mois précédent</ion-col>
+    <ion-col size="2">{{displayedFrenchMonth | uppercase}}</ion-col>
+    <ion-col size="2" (click)="nextMonth()">Mois suivant</ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+  <ion-row class="Dayssc">
     <ion-col class="colo">Lu</ion-col>
     <ion-col class="colo">Ma</ion-col>
     <ion-col class="colo">me</ion-col>
@@ -13,21 +19,11 @@
     <ion-row *ngFor="let week of calendar">
       <ion-col *ngFor = "let day of week" (click)="onSelect(day)">
         <ion-item>
-          <ion-label>{{ day.caldaynumber }}</ion-label>
-          <ion-label *ngIf="day.event">{{ day.event.title }}</ion-label>
+          <ion-label *ngIf="!day.event">{{ day.caldaynumber }}</ion-label>
+          <ion-label *ngIf="day.event">{{ day.caldaynumber }} {{ day.event.title }}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
-  {{ dday }} 
-  {{ numjour }}
-
   <app-event-detail [selectedDay]="selectedDay"></app-event-detail>
 
-  <!--
-  <ion-item *ngIf="events">
-    <ion-label *ngFor = "let event of events">
-    {{ event.title }}
-    </ion-label>
-  </ion-item>
--->
