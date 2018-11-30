@@ -32,12 +32,17 @@ const routes: Routes = [
         outlet: 'contact',
         component: ContactPage
       },
-      //{
-       // path: 'evenement',
-       // outlet: 'evenement',
-       // component: EvenementPage
-      //git }
-    ]
+      {
+        path: 'evenement/:day',
+        outlet: 'evenement',
+        component: EvenementPage
+      },
+      {
+       path: 'evenement',
+       outlet: 'evenement',
+       component: EvenementPage
+      },
+     ]
   },
   {
     path: '',

@@ -68,6 +68,7 @@ export class CalendarComponent implements OnInit {
           {
             caldate: day,
             caldateFrench: moment(day).format('dddd Do MMMM YYYY'),
+            caldateamj: moment(day).format('YYYYMMDD'),
             caldaynumber: moment(day).format('Do'),
             currentmonth: (moment(firstDayOfMonth, 'YYYYMMDD').format('MMMM') == moment(day).format('MMMM'))
           }

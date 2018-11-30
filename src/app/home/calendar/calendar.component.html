@@ -1,10 +1,10 @@
 <ion-grid>
   <ion-row>
     <ion-col size="3"></ion-col>
-    <ion-col size="2" (click)="prevMonth()">Mois précédent</ion-col>
-    <ion-col size="2">{{displayedFrenchMonth | uppercase}}</ion-col>
-    <ion-col size="2" (click)="nextMonth()">Mois suivant</ion-col>
-    <ion-col size="3"></ion-col>
+    <ion-col size="2" (click)="prevMonth()"><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
+    <ion-col size="3">{{displayedFrenchMonth | uppercase}}</ion-col>
+    <ion-col size="2" (click)="nextMonth()"><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
+    <ion-col size="2"></ion-col>
   </ion-row>
   <ion-row class="Dayssc">
     <ion-col class="colo">Lu</ion-col>
