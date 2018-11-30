@@ -1,29 +1,38 @@
-<ion-grid>
-  <ion-row>
-    <ion-col size="3"></ion-col>
-    <ion-col size="2" (click)="prevMonth()"><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
-    <ion-col size="3">{{displayedFrenchMonth | uppercase}}</ion-col>
-    <ion-col size="2" (click)="nextMonth()"><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
-    <ion-col size="2"></ion-col>
+<ion-grid class="calendar">
+  <ion-row class="month">
+    <ion-col offset="4" size="2" (click)="prevMonth()"><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
+    <ion-col size="2">{{displayedFrenchMonth | uppercase}}</ion-col>
+    <ion-col offset="1" size="2" (click)="nextMonth()"><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
   </ion-row>
-  <ion-row class="Dayssc">
-    <ion-col class="colo">Lu</ion-col>
-    <ion-col class="colo">Ma</ion-col>
-    <ion-col class="colo">me</ion-col>
-    <ion-col class="colo">Je</ion-col>
-    <ion-col class="colo">Ve</ion-col>
-    <ion-col class="colo">Sa</ion-col>
-    <ion-col class="colo">Di</ion-col>
+  <ion-row class="dayOfWeek">
+    <ion-col>Lu</ion-col>
+    <ion-col>Ma</ion-col>
+    <ion-col>Me</ion-col>
+    <ion-col>Je</ion-col>
+    <ion-col>Ve</ion-col>
+    <ion-col>Sa</ion-col>
+    <ion-col>Di</ion-col>
   </ion-row>
   
-    <ion-row *ngFor="let week of calendar">
-      <ion-col *ngFor = "let day of week" (click)="onSelect(day)">
-        <ion-item>
-          <ion-label *ngIf="!day.event">{{ day.caldaynumber }}</ion-label>
-          <ion-label *ngIf="day.event">{{ day.caldaynumber }} {{ day.event.title }}</ion-label>
-        </ion-item>
-      </ion-col>
+    <ion-row class="week" *ngFor="let week of calendar">
+        <ion-col size-xs="2" *ngFor = "let day of week" (click)="onSelect(day)">
+            <ion-label *ngIf="!day.event">{{ day.caldaynumber }}</ion-label>
+            <ion-label *ngIf="day.event">{{ day.caldaynumber }} {{ day.event.title }}</ion-label>
+        </ion-col>
     </ion-row>
   </ion-grid>
+
+<!--
+  <ion-row *ngFor="let week of calendar">
+      <ion-col *ngFor = "let day of week" (click)="onSelect(day)">
+      <ion-item>
+        <ion-label *ngIf="!day.event">{{ day.caldaynumber }}</ion-label>
+        <ion-label *ngIf="day.event">{{ day.caldaynumber }} {{ day.event.title }}</ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+-->
+
   <app-event-detail [selectedDay]="selectedDay"></app-event-detail>
 
